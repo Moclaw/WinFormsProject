@@ -114,20 +114,17 @@ namespace WinFormsProject
             // 
             // txtUsername
             // 
-            this.txtUsername.AcceptsReturn = true;
-            this.txtUsername.AcceptsTab = true;
-            this.txtUsername.AllowDrop = true;
             this.txtUsername.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUsername.Location = new System.Drawing.Point(93, 239);
+            this.txtUsername.Multiline = true;
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.PlaceholderText = "Username";
-            this.txtUsername.Size = new System.Drawing.Size(211, 16);
-            this.txtUsername.TabIndex = 4;
+            this.txtUsername.Size = new System.Drawing.Size(211, 23);
+            this.txtUsername.TabIndex = 1;
             this.txtUsername.TextChanged += new System.EventHandler(this.txtUsername_TextChanged);
             // 
             // txtPassword
             // 
-            this.txtPassword.AcceptsReturn = true;
             this.txtPassword.AcceptsTab = true;
             this.txtPassword.AllowDrop = true;
             this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -136,7 +133,8 @@ namespace WinFormsProject
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.PlaceholderText = "Password";
             this.txtPassword.Size = new System.Drawing.Size(211, 16);
-            this.txtPassword.TabIndex = 4;
+            this.txtPassword.TabIndex = 2;
+            this.txtPassword.TabStop = false;
             this.txtPassword.UseSystemPasswordChar = true;
             // 
             // btnLogin
@@ -145,7 +143,7 @@ namespace WinFormsProject
             this.btnLogin.Location = new System.Drawing.Point(54, 363);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(250, 40);
-            this.btnLogin.TabIndex = 5;
+            this.btnLogin.TabIndex = 3;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.button1_Click);
@@ -155,7 +153,7 @@ namespace WinFormsProject
             this.bthClose.Location = new System.Drawing.Point(136, 437);
             this.bthClose.Name = "bthClose";
             this.bthClose.Size = new System.Drawing.Size(75, 23);
-            this.bthClose.TabIndex = 6;
+            this.bthClose.TabIndex = 4;
             this.bthClose.Text = "Close";
             this.bthClose.UseVisualStyleBackColor = true;
             this.bthClose.Click += new System.EventHandler(this.button2_Click);
