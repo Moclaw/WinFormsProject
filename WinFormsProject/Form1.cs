@@ -23,6 +23,37 @@ namespace WinFormsProject
             txtUsername.Focus();
         }
 
+
+        #region Events
+
+        protected void HandleLogin(string username, string password)
+        {
+            var user =  from c in context.Wfusers select c;
+            if (!string.IsNullOrEmpty(txtUsername.Text))
+            {
+                foreach (var item in user)
+                {
+                    if (txtUsername.Text.Equals(item.UserName)  && txtPassword.Text.Equals(item.Password))
+                    {
+                        new Home().Show();
+                        this.Hide();
+                        break;
+                      
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid Username or Password");
+                        break;
+                    }
+                }
+            }
+
+        }
+
+
+        #endregion
+
+
         #region Method
         private void button2_Click(object sender, EventArgs e)
         {
@@ -34,44 +65,21 @@ namespace WinFormsProject
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-           
-        }
 
         private void Login_Load(object sender, EventArgs e)
         {
             txtUsername.Focus();
 
         }
-
-
-        #endregion
-
-        #region Events
-
-        protected void HandleLogin(string username, string password)
+        private void linkForgotPwd_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            var user =  from c in context.Wfusers select c;
-            if (!string.IsNullOrEmpty(txtUsername.Text))
-            {
-                foreach (var item in user)
-                {
-                    if (txtUsername.Text != item.UserName && txtPassword.Text != item.Password)
-                    {
-                        MessageBox.Show("Check input");
-                    }
-                    else
-                    {
-                        new Home().Show();
-                        this.Hide();
-                        break;
-                    }
-                }
-            }
+            new ForgotPassword().ShowDialog();
+        }
 
-        }        
-
+        private void Btn_Login_Click(object sender, EventArgs e)
+        {
+            HandleLogin(txtUsername.Text, txtPassword.Text);
+        }
         #endregion
     }
 }
