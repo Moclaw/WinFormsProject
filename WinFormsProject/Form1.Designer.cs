@@ -1,4 +1,6 @@
 ﻿
+using System.Windows.Forms;
+
 namespace WinFormsProject
 {
     partial class Login
@@ -29,7 +31,6 @@ namespace WinFormsProject
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TextBox textBox1;
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -40,26 +41,12 @@ namespace WinFormsProject
             this.bthClose = new System.Windows.Forms.Button();
             this.Btn_Login = new System.Windows.Forms.Button();
             this.linkForgotPwd = new System.Windows.Forms.LinkLabel();
-            textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).BeginInit();
             this.SuspendLayout();
-            // 
-            // textBox1
-            // 
-            textBox1.BackColor = System.Drawing.Color.White;
-            textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            textBox1.CausesValidation = false;
-            textBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            textBox1.Font = new System.Drawing.Font("Stencil", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            textBox1.Location = new System.Drawing.Point(126, 150);
-            textBox1.Name = "textBox1";
-            textBox1.ReadOnly = true;
-            textBox1.Size = new System.Drawing.Size(100, 26);
-            textBox1.TabIndex = 1;
-            textBox1.Text = "Login";
-            textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // pictureBox1
             // 
@@ -121,7 +108,14 @@ namespace WinFormsProject
             this.txtUsername.PlaceholderText = "Username";
             this.txtUsername.Size = new System.Drawing.Size(211, 23);
             this.txtUsername.TabIndex = 1;
-            this.txtUsername.TextChanged += new System.EventHandler(this.txtUsername_TextChanged);
+            this.txtUsername.KeyDown += (sndr, ev) =>
+            {
+                if (ev.KeyCode.Equals(Keys.Enter))
+                {
+                    HandleLogin(txtUsername.Text, txtPassword.Text);
+                }
+            };
+
             // 
             // txtPassword
             // 
@@ -134,15 +128,21 @@ namespace WinFormsProject
             this.txtPassword.PlaceholderText = "Password";
             this.txtPassword.Size = new System.Drawing.Size(211, 16);
             this.txtPassword.TabIndex = 2;
-            this.txtPassword.TabStop = false;
             this.txtPassword.UseSystemPasswordChar = true;
+            this.txtPassword.KeyDown += (sndr, ev) =>
+            {
+                if (ev.KeyCode.Equals(Keys.Enter))
+                {
+                    HandleLogin(txtUsername.Text, txtPassword.Text);
+                }
+            };
             // 
             // bthClose
             // 
             this.bthClose.Location = new System.Drawing.Point(135, 452);
             this.bthClose.Name = "bthClose";
             this.bthClose.Size = new System.Drawing.Size(75, 23);
-            this.bthClose.TabIndex = 4;
+            this.bthClose.TabIndex = 5;
             this.bthClose.Text = "Close";
             this.bthClose.UseVisualStyleBackColor = true;
             this.bthClose.Click += new System.EventHandler(this.button2_Click);
@@ -153,8 +153,8 @@ namespace WinFormsProject
             this.Btn_Login.Location = new System.Drawing.Point(54, 394);
             this.Btn_Login.Name = "Btn_Login";
             this.Btn_Login.Size = new System.Drawing.Size(250, 40);
-            this.Btn_Login.TabIndex = 5;
-            this.Btn_Login.Text = "Log in";
+            this.Btn_Login.TabIndex = 3;
+            this.Btn_Login.Text = "Login";
             this.Btn_Login.UseVisualStyleBackColor = true;
             this.Btn_Login.Click += new System.EventHandler(this.Btn_Login_Click);
             // 
@@ -165,17 +165,40 @@ namespace WinFormsProject
             this.linkForgotPwd.Location = new System.Drawing.Point(209, 351);
             this.linkForgotPwd.Name = "linkForgotPwd";
             this.linkForgotPwd.Size = new System.Drawing.Size(95, 15);
-            this.linkForgotPwd.TabIndex = 6;
+            this.linkForgotPwd.TabIndex = 4;
             this.linkForgotPwd.TabStop = true;
             this.linkForgotPwd.Text = "Forgot Password";
             this.linkForgotPwd.VisitedLinkColor = System.Drawing.Color.Black;
             this.linkForgotPwd.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkForgotPwd_LinkClicked);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Stencil", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(135, 147);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(81, 26);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Login";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.label2.Location = new System.Drawing.Point(63, 526);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(232, 15);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Design and code by Moclaw (Thành Công)";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
             // Login
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(350, 500);
+            this.ClientSize = new System.Drawing.Size(350, 550);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.linkForgotPwd);
             this.Controls.Add(this.Btn_Login);
             this.Controls.Add(this.bthClose);
@@ -185,7 +208,6 @@ namespace WinFormsProject
             this.Controls.Add(this.iconPictureBox2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.iconPictureBox1);
-            this.Controls.Add(textBox1);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Login";
@@ -212,6 +234,8 @@ namespace WinFormsProject
         private System.Windows.Forms.Button bthClose;
         private System.Windows.Forms.Button Btn_Login;
         private System.Windows.Forms.LinkLabel linkForgotPwd;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
 

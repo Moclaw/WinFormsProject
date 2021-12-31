@@ -29,7 +29,7 @@ namespace WinFormsProject
         protected void HandleLogin(string username, string password)
         {
             var user =  from c in context.Wfusers select c;
-            if (!string.IsNullOrEmpty(txtUsername.Text))
+            if (!string.IsNullOrEmpty(txtUsername.Text) && !string.IsNullOrEmpty(txtPassword.Text))
             {
                 foreach (var item in user)
                 {
@@ -47,6 +47,14 @@ namespace WinFormsProject
                     }
                 }
             }
+            else if (string.IsNullOrEmpty(txtUsername.Text))
+            {
+                MessageBox.Show("Username empty");
+            }
+            else if(string.IsNullOrEmpty(txtPassword.Text))
+            {
+                MessageBox.Show("Password empty");
+            }
 
         }
 
@@ -60,12 +68,14 @@ namespace WinFormsProject
             Application.Exit();
         }
 
-        private void txtUsername_TextChanged(object sender, EventArgs e)
+        private void CheckEnterKeyPressPasword(object sender, KeyPressEventArgs e)
         {
+            if (e.KeyChar == (char)Keys.Enter)
 
+            {
+                txtPassword.Focus();
+            }
         }
-
-
         private void Login_Load(object sender, EventArgs e)
         {
             txtUsername.Focus();
@@ -81,5 +91,15 @@ namespace WinFormsProject
             HandleLogin(txtUsername.Text, txtPassword.Text);
         }
         #endregion
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+        
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

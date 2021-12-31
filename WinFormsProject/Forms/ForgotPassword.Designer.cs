@@ -1,5 +1,5 @@
 ﻿
-namespace WinFormsProject.Models
+namespace WinFormsProject.Forms
 {
     partial class ForgotPassword
     {
@@ -37,18 +37,16 @@ namespace WinFormsProject.Models
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.linkLabel1.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.linkLabel1.LinkBehavior = System.Windows.Forms.LinkBehavior.AlwaysUnderline;
-            this.linkLabel1.LinkColor = System.Drawing.Color.DodgerBlue;
-            this.linkLabel1.Location = new System.Drawing.Point(63, 56);
+            this.linkLabel1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.linkLabel1.LinkColor = System.Drawing.Color.Black;
+            this.linkLabel1.Location = new System.Drawing.Point(37, 60);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(266, 30);
-            this.linkLabel1.TabIndex = 1;
+            this.linkLabel1.Size = new System.Drawing.Size(208, 22);
+            this.linkLabel1.TabIndex = 0;
             this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Contact The Administrator";
+            this.linkLabel1.Text = "Contact the adminstator";
             this.linkLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.toolTip1.SetToolTip(this.linkLabel1, "Click Here to contact admin");
+            this.toolTip1.SetToolTip(this.linkLabel1, "Contact with admin to facebook");
             this.linkLabel1.VisitedLinkColor = System.Drawing.Color.Black;
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
@@ -60,10 +58,9 @@ namespace WinFormsProject.Models
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(384, 161);
+            this.ClientSize = new System.Drawing.Size(284, 161);
             this.Controls.Add(this.linkLabel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "ForgotPassword";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ForgotPassword";
@@ -73,6 +70,7 @@ namespace WinFormsProject.Models
         }
 
         #endregion
+
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.ToolTip toolTip1;
     }
