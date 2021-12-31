@@ -108,14 +108,7 @@ namespace WinFormsProject
             this.txtUsername.PlaceholderText = "Username";
             this.txtUsername.Size = new System.Drawing.Size(211, 23);
             this.txtUsername.TabIndex = 1;
-            this.txtUsername.KeyDown += (sndr, ev) =>
-            {
-                if (ev.KeyCode.Equals(Keys.Enter))
-                {
-                    HandleLogin(txtUsername.Text, txtPassword.Text);
-                }
-            };
-
+            this.txtUsername.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnterKeyPress);
             // 
             // txtPassword
             // 
@@ -129,13 +122,7 @@ namespace WinFormsProject
             this.txtPassword.Size = new System.Drawing.Size(211, 16);
             this.txtPassword.TabIndex = 2;
             this.txtPassword.UseSystemPasswordChar = true;
-            this.txtPassword.KeyDown += (sndr, ev) =>
-            {
-                if (ev.KeyCode.Equals(Keys.Enter))
-                {
-                    HandleLogin(txtUsername.Text, txtPassword.Text);
-                }
-            };
+            this.txtPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnterKeyPress);
             // 
             // bthClose
             // 
@@ -190,7 +177,6 @@ namespace WinFormsProject
             this.label2.Size = new System.Drawing.Size(232, 15);
             this.label2.TabIndex = 8;
             this.label2.Text = "Design and code by Moclaw (Thành Công)";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // Login
             // 
@@ -213,7 +199,6 @@ namespace WinFormsProject
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
-            this.Load += new System.EventHandler(this.Login_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).EndInit();

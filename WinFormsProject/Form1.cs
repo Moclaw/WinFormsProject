@@ -20,7 +20,6 @@ namespace WinFormsProject
         public Login()
         {
             InitializeComponent();
-            txtUsername.Focus();
         }
 
 
@@ -28,17 +27,17 @@ namespace WinFormsProject
 
         protected void HandleLogin(string username, string password)
         {
-            var user =  from c in context.Wfusers select c;
+            var user = from c in context.Wfusers select c;
             if (!string.IsNullOrEmpty(txtUsername.Text) && !string.IsNullOrEmpty(txtPassword.Text))
             {
                 foreach (var item in user)
                 {
-                    if (txtUsername.Text.Equals(item.UserName)  && txtPassword.Text.Equals(item.Password))
+                    if (txtUsername.Text.Equals(item.UserName) && txtPassword.Text.Equals(item.Password))
                     {
                         new Home().Show();
                         this.Hide();
                         break;
-                      
+
                     }
                     else
                     {
@@ -47,13 +46,9 @@ namespace WinFormsProject
                     }
                 }
             }
-            else if (string.IsNullOrEmpty(txtUsername.Text))
+            else
             {
-                MessageBox.Show("Username empty");
-            }
-            else if(string.IsNullOrEmpty(txtPassword.Text))
-            {
-                MessageBox.Show("Password empty");
+                MessageBox.Show("Can't empty");
             }
 
         }
@@ -68,18 +63,9 @@ namespace WinFormsProject
             Application.Exit();
         }
 
-        private void CheckEnterKeyPressPasword(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)Keys.Enter)
-
-            {
-                txtPassword.Focus();
-            }
-        }
         private void Login_Load(object sender, EventArgs e)
         {
-            txtUsername.Focus();
-
+           
         }
         private void linkForgotPwd_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -92,14 +78,32 @@ namespace WinFormsProject
         }
         #endregion
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+
+        private void CheckEnterKeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)
         {
-        
+            if (e.KeyChar == (char)Keys.Enter)
+
+            {
+                if (string.IsNullOrEmpty(txtUsername.PlaceholderText) || string.IsNullOrEmpty(txtPassword.PlaceholderText))
+                {
+                    Load();
+                }
+
+                HandleLogin(txtUsername.Text,txtPassword.Text);
+            }
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void Load()
         {
-
+            if (string.IsNullOrEmpty(txtUsername.Text))
+            {
+                txtUsername.Focus();
+                if(string.IsNullOrEmpty(txtUsername.PlaceholderText)) txtUsername.PlaceholderText = "Username";
+            }
+            if (string.IsNullOrEmpty(txtPassword.Text))
+            {
+                if (string.IsNullOrEmpty(txtPassword.PlaceholderText)) txtPassword.PlaceholderText = "Password";
+            }
         }
     }
 }
