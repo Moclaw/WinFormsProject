@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
 using FontAwesome.Sharp;
+using WinFormsProject.Models;
 
 namespace WinFormsProject.Forms
 {
@@ -17,11 +19,16 @@ namespace WinFormsProject.Forms
         private int mov;
         private int movX;
         private int movY;
-
-        public Home()
+        Wfuser user = new Wfuser();
+        public Home(Wfuser data)
         {
+            user = data;
             InitializeComponent();
             CustomDesign();
+            if (user.RoleId != 1)
+            {
+                btnAdmin.Visible = false;
+            }
         }
 
         #region Events
@@ -138,32 +145,6 @@ namespace WinFormsProject.Forms
             }
           
         }
-        private void Home_Load(object sender, EventArgs e)
-        {
-            this.Location = Screen.AllScreens[0].WorkingArea.Location;
-            this.StartPosition = FormStartPosition.CenterParent;
-        }
-        private void panel_MouseDown(object sender, MouseEventArgs e)
-        {
-            mov = 1;
-            movX = e.X;
-            movY = e.Y;
-        }
-        private void panelDestop_MouseMove(object sender, MouseEventArgs e)
-        {
-
-            if (mov == 1)
-            {
-                this.SetDesktopLocation(MousePosition.X - movX, MousePosition.Y - movY);
-            }
-        }
-
-
-        private void panelDestop_MouseUp(object sender, MouseEventArgs e)
-        {
-            mov = 0;
-        }
-
         #endregion
 
     }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -27,30 +28,27 @@ namespace WinFormsProject
 
         protected void HandleLogin(string username, string password)
         {
-            var user = from c in context.Wfusers select c;
-            if (!string.IsNullOrEmpty(txtUsername.Text) && !string.IsNullOrEmpty(txtPassword.Text))
+            int count = 0;
+            var accountcount = context.Wfusers.Count();
+            if (!string.IsNullOrEmpty(username) && !string.IsNullOrEmpty(password))
             {
-                foreach (var item in user)
+                foreach (var item in context.Wfusers)
                 {
-                    if (txtUsername.Text.Equals(item.UserName) && txtPassword.Text.Equals(item.Password))
+                    count += 1;
+                    if (username == item.UserName && password == item.Password)
                     {
-                        new Home().Show();
+                        Home data = new Home(item);
+                        data.Show();
                         this.Hide();
                         break;
-
                     }
-                    else
+                    if(count == accountcount)
                     {
-                        MessageBox.Show("Invalid Username or Password");
+                        MessageBox.Show("Invaild username or passdword");
                         break;
                     }
                 }
             }
-            else
-            {
-                MessageBox.Show("Can't empty");
-            }
-
         }
 
 
@@ -65,7 +63,7 @@ namespace WinFormsProject
 
         private void Login_Load(object sender, EventArgs e)
         {
-           
+
         }
         private void linkForgotPwd_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -89,7 +87,7 @@ namespace WinFormsProject
                     Load();
                 }
 
-                HandleLogin(txtUsername.Text,txtPassword.Text);
+                HandleLogin(txtUsername.Text, txtPassword.Text);
             }
         }
 
@@ -98,7 +96,7 @@ namespace WinFormsProject
             if (string.IsNullOrEmpty(txtUsername.Text))
             {
                 txtUsername.Focus();
-                if(string.IsNullOrEmpty(txtUsername.PlaceholderText)) txtUsername.PlaceholderText = "Username";
+                if (string.IsNullOrEmpty(txtUsername.PlaceholderText)) txtUsername.PlaceholderText = "Username";
             }
             if (string.IsNullOrEmpty(txtPassword.Text))
             {

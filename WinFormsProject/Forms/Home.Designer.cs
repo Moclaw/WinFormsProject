@@ -46,7 +46,6 @@ namespace WinFormsProject.Forms
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
-            this.panelDestop = new System.Windows.Forms.Panel();
             this.panelDisplay = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
             this.panelAdmin.SuspendLayout();
@@ -276,24 +275,12 @@ namespace WinFormsProject.Forms
             this.iconPictureBox1.TabIndex = 0;
             this.iconPictureBox1.TabStop = false;
             // 
-            // panelDestop
-            // 
-            this.panelDestop.BackColor = System.Drawing.Color.Gainsboro;
-            this.panelDestop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelDestop.Location = new System.Drawing.Point(228, 0);
-            this.panelDestop.Name = "panelDestop";
-            this.panelDestop.Size = new System.Drawing.Size(1006, 48);
-            this.panelDestop.TabIndex = 4;
-            this.panelDestop.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_MouseDown);
-            this.panelDestop.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelDestop_MouseMove);
-            this.panelDestop.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panelDestop_MouseUp);
-            // 
             // panelDisplay
             // 
             this.panelDisplay.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelDisplay.Location = new System.Drawing.Point(228, 48);
+            this.panelDisplay.Location = new System.Drawing.Point(228, 0);
             this.panelDisplay.Name = "panelDisplay";
-            this.panelDisplay.Size = new System.Drawing.Size(1006, 663);
+            this.panelDisplay.Size = new System.Drawing.Size(1006, 711);
             this.panelDisplay.TabIndex = 5;
             // 
             // Home
@@ -304,14 +291,13 @@ namespace WinFormsProject.Forms
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1234, 711);
             this.Controls.Add(this.panelDisplay);
-            this.Controls.Add(this.panelDestop);
             this.Controls.Add(this.panel2);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.Name = "Home";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Home";
-            this.Load += new System.EventHandler(this.Home_Load);
             this.panel2.ResumeLayout(false);
             this.panelAdmin.ResumeLayout(false);
             this.panelMedia.ResumeLayout(false);
@@ -341,7 +327,6 @@ namespace WinFormsProject.Forms
         private System.Windows.Forms.Button button5;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panelDestop;
         private System.Windows.Forms.Panel panelDisplay;
     }
 }
