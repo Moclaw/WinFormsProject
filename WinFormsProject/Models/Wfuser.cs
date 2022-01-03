@@ -16,7 +16,7 @@ namespace WinFormsProject.Models
         public bool? Gender { get; set; }
         public DateTime? BirthDay { get; set; }
         public DateTime? CreateTime { get; set; }
-        public bool? Status { get; set; }
+        public bool Status { get; set; }
         public virtual Wfrole Role { get; set; }
     }
 }

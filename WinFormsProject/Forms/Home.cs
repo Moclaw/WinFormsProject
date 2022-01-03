@@ -16,9 +16,6 @@ namespace WinFormsProject.Forms
     {
         private Form _childForm;
         private IconButton _iconbutton;
-        private int mov;
-        private int movX;
-        private int movY;
         Wfuser user = new Wfuser();
         public Home(Wfuser data)
         {
@@ -29,6 +26,7 @@ namespace WinFormsProject.Forms
             {
                 btnAdmin.Visible = false;
             }
+            nameuser.Text = $"Hi, { (string.IsNullOrEmpty(data.FisrtName) ? data.UserName : data.FisrtName )}";
         }
 
         #region Events
@@ -53,7 +51,6 @@ namespace WinFormsProject.Forms
         {
             if (subPanel.Visible == false)
             {
-                HideSubMenu();
                 subPanel.Visible = true;
             }
             else

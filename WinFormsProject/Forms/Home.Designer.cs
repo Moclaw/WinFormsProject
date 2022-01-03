@@ -47,17 +47,26 @@ namespace WinFormsProject.Forms
             this.label1 = new System.Windows.Forms.Label();
             this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
             this.panelDisplay = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.nameuser = new System.Windows.Forms.LinkLabel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.usertext = new System.Windows.Forms.LinkLabel();
             this.panel2.SuspendLayout();
             this.panelAdmin.SuspendLayout();
             this.panelMedia.SuspendLayout();
             this.panelDashboard.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
+            this.panelDisplay.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Gainsboro;
+            this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.button5);
             this.panel2.Controls.Add(this.panelAdmin);
             this.panel2.Controls.Add(this.btnAdmin);
@@ -277,11 +286,61 @@ namespace WinFormsProject.Forms
             // 
             // panelDisplay
             // 
+            this.panelDisplay.Controls.Add(this.panel3);
+            this.panelDisplay.Controls.Add(this.label2);
             this.panelDisplay.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelDisplay.Location = new System.Drawing.Point(228, 0);
+            this.panelDisplay.Location = new System.Drawing.Point(0, 0);
             this.panelDisplay.Name = "panelDisplay";
-            this.panelDisplay.Size = new System.Drawing.Size(1006, 711);
+            this.panelDisplay.Size = new System.Drawing.Size(1234, 711);
             this.panelDisplay.TabIndex = 5;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.nameuser);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1234, 48);
+            this.panel3.TabIndex = 1;
+            // 
+            // nameuser
+            // 
+            this.nameuser.AutoSize = true;
+            this.nameuser.Location = new System.Drawing.Point(1087, 19);
+            this.nameuser.Name = "nameuser";
+            this.nameuser.Size = new System.Drawing.Size(60, 15);
+            this.nameuser.TabIndex = 0;
+            this.nameuser.TabStop = true;
+            this.nameuser.Text = "linkLabel1";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(876, 3);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(38, 15);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "label2";
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.usertext);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(0, 378);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(228, 72);
+            this.panel4.TabIndex = 8;
+            // 
+            // usertext
+            // 
+            this.usertext.AutoSize = true;
+            this.usertext.Location = new System.Drawing.Point(76, 28);
+            this.usertext.Name = "usertext";
+            this.usertext.Size = new System.Drawing.Size(22, 15);
+            this.usertext.TabIndex = 0;
+            this.usertext.TabStop = true;
+            this.usertext.Text = "Hi,";
+            this.usertext.VisitedLinkColor = System.Drawing.Color.Blue;
             // 
             // Home
             // 
@@ -290,8 +349,8 @@ namespace WinFormsProject.Forms
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1234, 711);
-            this.Controls.Add(this.panelDisplay);
             this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panelDisplay);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.ImeMode = System.Windows.Forms.ImeMode.Off;
@@ -305,6 +364,12 @@ namespace WinFormsProject.Forms
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
+            this.panelDisplay.ResumeLayout(false);
+            this.panelDisplay.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -328,5 +393,10 @@ namespace WinFormsProject.Forms
         private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panelDisplay;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.LinkLabel nameuser;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.LinkLabel usertext;
     }
 }
